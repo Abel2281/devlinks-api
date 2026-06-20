@@ -1,0 +1,20 @@
+# Project Rules
+
+- Follow clean architecture (routers → services → models)
+- Never mix DB logic inside routers
+- Use async functions everywhere
+- Use dependency injection (FastAPI Depends)
+- Validate all inputs with Pydantic
+- Use environment variables via .env
+- Always write modular, reusable code
+- Follow REST API conventions
+- Handle errors with proper HTTP status codes
+Always assume:
+- Postgres and Redis run in Docker containers
+- Services are managed via docker-compose
+- Service names:
+  - postgres
+  - redis
+- Internal Docker networking may use:
+  - postgres:5432
+  - redis:6379
