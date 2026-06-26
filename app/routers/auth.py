@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.ext.asyncio import AsyncSession
-
+from app.routers.deps import rate_limit_login
 from app.database import get_db
 from app.schemas.auth import (
     LoginRequest,
@@ -27,7 +27,7 @@ async def register(user_data: UserCreate, db: AsyncSession = Depends(get_db)):
         )
 
 
-@router.post("/login", response_model=TokenResponse)
+@router.post("/login", response_model=TokenResponse, dependencies=[Depends(rate_limit_login)])
 async def login(login_data: LoginRequest, db: AsyncSession = Depends(get_db)):
     auth_service = AuthService(db)
     try:
