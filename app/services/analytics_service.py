@@ -65,7 +65,7 @@ class AnalyticsService:
             )
             .where(
                 Click.link_id.in_(link_ids),
-                Click.clicked_at >= datetime.now(timezone.utc).date(),
+                Click.clicked_at >= datetime.now(timezone.utc).date() - timedel,
             )
             .group_by(cast(Click.clicked_at, Date))
             .order_by(cast(Click.clicked_at, Date).desc())
