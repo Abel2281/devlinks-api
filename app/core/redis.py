@@ -28,7 +28,7 @@ async def cache_get(key: str) -> Any | None:
     return None
 
 
-async def cache_set(key: str, value: Any, ttl: int = 300) -> None:
+async def cache_set(key: str, value: Any, ttl: int = settings.PROFILE_CACHE_TTL) -> None:
     r = await get_redis()
     await r.setex(key, ttl, json.dumps(value, default=str))
 
