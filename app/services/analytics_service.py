@@ -1,5 +1,5 @@
 import uuid
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 
 from sqlalchemy import select, func, cast, Date
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -65,7 +65,7 @@ class AnalyticsService:
             )
             .where(
                 Click.link_id.in_(link_ids),
-                Click.clicked_at >= datetime.now(timezone.utc).date() - timedel,
+                Click.clicked_at >= datetime.now(timezone.utc).date() - timedelta(days=30),
             )
             .group_by(cast(Click.clicked_at, Date))
             .order_by(cast(Click.clicked_at, Date).desc())
