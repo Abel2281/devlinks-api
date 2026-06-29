@@ -1,7 +1,5 @@
 # DevLinks API 🔗
 
-![DevLinks API Swagger UI](https://via.placeholder.com/800x400/0078D4/FFFFFF?text=DevLinks+API+Swagger+UI)
-
 [![Python](https://img.shields.io/badge/Python-3.11%2B-blue.svg)](https://www.python.org/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.109.0-009688.svg)](https://fastapi.tiangolo.com/)
 [![Docker](https://img.shields.io/badge/Docker-24.0%2B-2496ED.svg)](https://www.docker.com/)
@@ -212,5 +210,3 @@ Contributions are welcome! Please follow these steps:
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
