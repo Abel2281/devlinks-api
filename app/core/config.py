@@ -9,9 +9,12 @@ class Settings(BaseSettings):
 
     # Database
     DATABASE_URL: str = "postgresql+asyncpg://postgres:postgres@localhost:5432/devlinks"
+    POSTGRES_USER: str | None = None
+    POSTGRES_PASSWORD: str | None = None
+    POSTGRES_DB: str | None = None
 
     # JWT
-    SECRET_KEY: str = "change-this-to-a-long-random-secret-key"
+    SECRET_KEY: str = "7f9b3d8e5a1c4f2d9e6b0a3c8f1d7e2b4c6a9f0d3e1b5c7a8d2f6e9c4b1a0f3"
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 15
     REFRESH_TOKEN_EXPIRE_DAYS: int = 7
 
@@ -19,11 +22,11 @@ class Settings(BaseSettings):
     REDIS_URL: str = "redis://localhost:6379/0"
 
     # Caching
-    PROFILE_CACHE_TTL: int = 300  # 5 minutes in seconds
+    PROFILE_CACHE_TTL: int = 300  
 
     # Rate Limiting
     RATE_LIMIT_REQUESTS: int = 10
-    RATE_LIMIT_WINDOW: int = 60  # 1 minute in seconds
+    RATE_LIMIT_WINDOW: int = 60 
 
     model_config = {"env_file": ".env", "case_sensitive": True}
 
